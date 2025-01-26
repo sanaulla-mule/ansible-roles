@@ -1,4 +1,5 @@
-- name: install mysql libraries
+ tasks:
+  - name: install mysql libraries
     ansible.builtin.pip:
       name: "{{ item }}"
       executable: pip3.9 
@@ -20,7 +21,7 @@
   - name: connect to mysql
     community.mysql.mysql_info:
       login_user: root
-      login_password: ExpenseApp@1
+      login_password: "{{ mysql_root_password }}"
       login_host: mysql.sanadevops.online 
     register: mysql_info 
     ignore_errors: true
