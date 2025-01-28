@@ -8,18 +8,17 @@
     name: nginx
     state: started
     enabled: yes
-  
-- name: delete html direcotry
-  ansible.builtin.file:
-    path:  /usr/share/nginx/html
-    state: absent
-
 
 - name: include from common role
   include_role:
     name:  common
-    tasks_from: main  
-    
+    tasks_from: main     
+  
+# - name: delete html direcotry
+#   ansible.builtin.file:
+#     path:  /usr/share/nginx/html
+#     state: absent
+ 
      
 # - name: create html direcotry
 #   ansible.builtin.file:
